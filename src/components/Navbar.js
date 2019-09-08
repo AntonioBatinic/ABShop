@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import logo from '../AB3.png'
 import styled from 'styled-components'
 import {ButtonContainer} from './Button'
+import Login from './Login';
+import { ProductConsumer } from '../context';
 
 export default class Navbar extends Component {
     render() {
@@ -26,6 +28,32 @@ export default class Navbar extends Component {
                         My cart
                     </ButtonContainer>
                 </Link>
+
+{/*                 <Link to="/login" className="ml-auto">
+                <ButtonContainer>
+                        Login
+                 </ButtonContainer>
+                 </Link>
+ */}
+                 <ProductConsumer>
+                    {value => {
+                        const { userLoggedIn,logOutUser } = value;
+                        if(!userLoggedIn){
+                            return(
+                            <Link to="/login" className="ml-auto">
+                             <ButtonContainer>
+                                 Login
+                             </ButtonContainer>
+                            </Link>
+                            )
+                        }
+                        else {
+                            return (<ButtonContainer onClick={()=> logOutUser()}>
+                                Logout
+                            </ButtonContainer>)
+                        }
+                    }}
+                </ProductConsumer>
             </NavWrapper>
         )
     }

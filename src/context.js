@@ -9,6 +9,7 @@ class ProductProvider extends Component {
         products: [],
         detailProduct: detailProduct,
         cart:[],
+        userLoggedIn:false,
         modelOpen:false,
         modelProduct:detailProduct,
         cartSubTotal:0,
@@ -17,6 +18,18 @@ class ProductProvider extends Component {
     };
     componentDidMount(){
         this.setProducts();
+    }
+    authorizeUser = () =>
+    {
+        this.setState(()=>{
+            return {userLoggedIn:true}
+        })
+    }
+    logOutUser = () =>
+    {
+        this.setState(()=>{
+            return {userLoggedIn:false}
+        })
     }
     setProducts = () => {
         let tempProducts = [];
@@ -164,7 +177,9 @@ class ProductProvider extends Component {
                 increment:this.increment,
                 decrement:this.decrement,
                 removeItem:this.removeItem,
-                clearCart:this.clearCart
+                clearCart:this.clearCart,
+                authorizeUser:this.authorizeUser,
+                logOutUser:this.logOutUser
             }}>
                 {this.props.children}
             </ProductContext.Provider>
