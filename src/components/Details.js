@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {ProductConsumer } from '../context'
 import {Link} from 'react-router-dom'
 import {ButtonContainer} from './Button'
+import CommentBox from './CommentBox'
 
 export default class Details extends Component {
     render() {
@@ -52,7 +53,7 @@ export default class Details extends Component {
                                     </div>
                                 </div>
                             </div>
-                            
+                            <CommentBox></CommentBox>
                         </div>
                     )
                 }}

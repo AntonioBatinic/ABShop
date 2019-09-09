@@ -42,7 +42,13 @@ export default class Login extends Component {
           <Link to="/">
           <Button onClick={() => authorizeUser()}>Submit</Button>
           </Link>
+          
            )}}</ProductConsumer>
+
+           <Link to="/register" >
+          <h4 className="mt-3 text-danger">Not registered?</h4>
+          <h4 className="text-danger">Register here</h4>
+          </Link>
         </Form>
       </Container>
     );

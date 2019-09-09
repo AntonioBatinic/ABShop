@@ -9,6 +9,7 @@ import Cart from './components/Cart';
 import Default from './components/Default';
 import Model from './components/Model';
 import Login from './components/Login';
+import Register from './components/Register';
 
 class App extends Component {
   render () {
@@ -20,6 +21,7 @@ class App extends Component {
          <Route path="/details" component={Details}/>
          <Route path="/cart" component={Cart}/>
          <Route path="/login" component={Login}/>
+         <Route path="/register" component={Register}/>
          <Route component={Default}/>
        </Switch>
        <Model></Model>
